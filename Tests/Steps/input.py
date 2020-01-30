@@ -23,7 +23,8 @@ def close_page(context):
 
 @when(u'write {thing} in input form')
 def write_thing(context, thing):
-    context.page.enter_message(thing)
+    value = thing if thing != 'empty' else ""
+    context.page.enter_message(value)
         
 @when(u'click submit button')
 def submit(context):
@@ -31,7 +32,8 @@ def submit(context):
         
 @then(u'{thing} are displayed')    
 def check_result(context, thing):
-    assert context.page.get_message_result() == thing
+    result = thing if thing != 'empty' else ""
+    assert context.page.get_message_result() == result
 
 
 
@@ -39,11 +41,13 @@ def check_result(context, thing):
 
 @when(u'user has entered {number1} into the first form')
 def enter_first_number(context, number1):
-    context.page.enter_a(number1)
+    value = number1 if number1 != 'empty' else ""
+    context.page.enter_a(value)
 
 @when(u'user has also entered {number2} into second form')
 def enter_sec_number(context, number2):
-    context.page.enter_b(number2)
+    value = number2 if number2 != 'empty' else ""
+    context.page.enter_b(value)
 
 @when(u'user press add')
 def sumbit(context):
@@ -51,4 +55,5 @@ def sumbit(context):
 
 @then(u'the result should be {result}')
 def check_ab_result(context, result):
+    result = result if result != 'empty' else ""
     assert context.page.get_ab_result() == result

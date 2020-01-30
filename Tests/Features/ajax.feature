@@ -1,25 +1,22 @@
 Feature: Ajax form page
 
-    Scenario Outline: Ajax valid form
-        Given user is at selenium simple ajax form page
+    Scenario Outline: Check ajax form
+        Given user is at selenium ajax form page
         When write <name> in name input
         And write <comment> in comment input
-        And click sumbit ajax button 
-        Then page is loading
-        And message is displayed
+        And click sumbit ajax form button 
+        Then ajax page is loading
+        And message <is_displayed>
         And page is closed
 
             Examples:
-                | name        | comment         |
-                | Test        | Testing comment |
-                | Hello World | 123123123       |
+                | name        | comment         | is_displayed  |
+                | Test        | Testing comment | displayed     |
+                | empty       | only comment    | not displayed |
+                | only name   | empty           | displayed     |
+                | empty       | empty           | not displayed |
 
-    Scenario Outline: Ajax invalid form
-        Given user is at selenium simple ajax form page
-        When page is loading
-        And message is not displayed
-        And page is closed
-        
+# should be 'not displayed' - ERROR in line 16
         
     
     

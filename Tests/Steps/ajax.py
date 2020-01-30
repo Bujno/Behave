@@ -7,45 +7,35 @@ import time
 
 # Global
 
-@given(u'user is at selenium simple ajax form page')
+@given(u'user is at selenium ajax form page')
 def selenium_page(context):
     driver = webdriver.Firefox(executable_path=EXECUTABLE_PATH)
     context.page = AjaxFormPage(driver)
     context.page.open('ajax-form-submit-demo.html')
     assert context.page.get_url() == "https://www.seleniumeasy.com/test/ajax-form-submit-demo.html"
 
-# @then(u'page is closed')
-# def close_page(context):
-#     context.page.driver.close()
 
-
-
-# Scenario Ajax valid form
+# Scenario Check ajax form
 
 @when(u'write {name} in name input')
 def write_name(context, name):
-    context.page.enter_name(name)
+    value = name if name != 'empty' else ""
+    context.page.enter_name(value)
 
 @when(u'write {comment} in comment input')
 def write_comment(context, comment):
-    context.page.enter_text(comment)
+    value = comment if comment != 'empty' else ""
+    context.page.enter_text(value)
         
-@when(u'click sumbit ajax button')
+@when(u'click sumbit ajax form button')
 def submit(context):
     context.page.click_submit_button()
 
-@then(u'page is loading')
+@then(u'ajax page is loading')
 def loaging_page(context):
     time.sleep(2)
         
-@then(u'message is displayed')    
-def check_result(context):
-    assert context.page.get_result() == 'Form submited Successfully!'
-
-
-
-# Scenario Ajax invalid form
-
-@then(u'message is not displayed')    
-def check_no_result(context):
-    assert context.page.get_result() == ''
+@then(u'message {is_displayed}')    
+def check_result(context, is_displayed):
+    result = 'Form submited Successfully!' if is_displayed == 'displayed' else ""
+    assert context.page.get_result() == result

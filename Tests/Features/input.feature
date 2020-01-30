@@ -11,6 +11,7 @@ Feature: Selenium simple input page
         | thing       |
         | Test        |
         | Hello World |
+        | empty       |
 
 
   Scenario Outline: Two input form
@@ -26,6 +27,10 @@ Feature: Selenium simple input page
             |        5|        2|        7|
             |        4|        8|       12|  
             |        1|        c|      NaN|
-            |       12|    512w1|      524|
+            |       12|    512w1|      524| 
+            |    empty|        8|      NaN|  
+            |        1|    empty|      NaN|
+            |    empty|    empty|      NaN|
+            |   string|   string|      NaN|
 
-
+# should be NaN - ERROR in line 30
