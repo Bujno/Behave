@@ -6,7 +6,7 @@ from behave import given, when, then
 
 # Global
 
-@given(u'user is at selenium simple input page')
+@given(u'user is on selenium simple input page')
 def selenium_page(context):
     driver = webdriver.Firefox(executable_path=EXECUTABLE_PATH)
     context.page = InputFormPage(driver)
