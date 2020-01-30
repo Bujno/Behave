@@ -1,11 +1,24 @@
 # Behave
 
-To install 
+## To install 
 ```
 pip install -r requirements.txt
 ```
+## To do
 
-Found ERRORS
+```
+ def page_has_loaded(self):
+        page_state = self.browser.execute_script('return document.readyState;')
+        return page_state == 'complete'
+
+def test020_user_login(self):
+        self.page.click_pln_btc_link()
+        while(not self.page_has_loaded()):
+            pass
+        self.assertEqual(self.browser.current_url, url)
+```
+
+## Found ERRORS
 ```
 Should be
 
