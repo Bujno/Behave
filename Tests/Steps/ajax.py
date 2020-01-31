@@ -7,7 +7,7 @@ import time
 
 # Global
 
-@given(u'user is at selenium ajax form page')
+@given(u'user is on selenium ajax form page')
 def selenium_page(context):
     driver = webdriver.Firefox(executable_path=EXECUTABLE_PATH)
     context.page = AjaxFormPage(driver)

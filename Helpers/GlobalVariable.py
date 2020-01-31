@@ -1,1 +1,1 @@
-EXECUTABLE_PATH = r"C:\Users\bujno\Desktop\Behave\geckodriver.exe"
+EXECUTABLE_PATH = r"C:\Users\user\Desktop\Behave\geckodriver.exe"

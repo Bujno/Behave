@@ -45,7 +45,7 @@ def age_radiobutton(context, age):
 def radiobutton_submit(context):
     context.page.click_submit_button()
 
-@then(u'radiobutton message {message}')
+@then(u'radiobutton message {message} on page')
 def display_message(context, message):
     if message == 'is displayed':
         assert f"Radio button '{context.type}' is checked" == context.page.get_result_text()

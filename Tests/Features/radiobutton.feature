@@ -4,7 +4,7 @@ Feature: Radiobutton Page
         Given user is on selenium radiobutton page
         When user click on <radiobutton_type> simple radiobutton
         Then user click on simple radiobutton submit button
-        And radiobutton message <message>
+        And radiobutton message <message> on page
         And page is closed
 
         Examples:

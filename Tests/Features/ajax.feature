@@ -1,7 +1,7 @@
 Feature: Ajax form page
 
     Scenario Outline: Check ajax form
-        Given user is at selenium ajax form page
+        Given user is on selenium ajax form page
         When write <name> in name input
         And write <comment> in comment input
         And click sumbit ajax form button 

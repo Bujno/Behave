@@ -4,7 +4,7 @@ Feature: Selenium simple input page
     Given user is on selenium simple input page
     When write <thing> in input form
     And  click submit button
-    Then <thing> are displayed
+    Then <thing> is displayed
     And page is closed
 
        Examples:

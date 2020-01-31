@@ -30,7 +30,7 @@ def write_thing(context, thing):
 def submit(context):
     context.page.click_submit_button()
         
-@then(u'{thing} are displayed')    
+@then(u'{thing} is displayed')    
 def check_result(context, thing):
     result = thing if thing != 'empty' else ""
     assert context.page.get_message_result() == result
